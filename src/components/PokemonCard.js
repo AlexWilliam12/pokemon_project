@@ -1,15 +1,6 @@
-import { useState } from "react";
-import { ActivityIndicator } from "react-native";
-import { Image, Text, View } from "react-native";
-import { TouchableOpacity } from "react-native";
+import { Image, Text, TouchableOpacity, View } from "react-native";
 
 export default function PokemonCard({ id, name, images, navigation }) {
-
-    const [loading, setLoading] = useState(true);
-
-    const handleImageLoaded = () => {
-        setLoading(false);
-    }
 
     return (
         <TouchableOpacity
@@ -38,7 +29,6 @@ export default function PokemonCard({ id, name, images, navigation }) {
                     justifyContent: 'center'
                 }}
             >
-                {loading &&<ActivityIndicator size='large' />}
                 <Image
                     source={{ uri: images[0] }}
                     style={{
@@ -47,7 +37,6 @@ export default function PokemonCard({ id, name, images, navigation }) {
                         borderTopRightRadius: 40,
                         borderTopLeftRadius: 40,
                     }}
-                    onLoad={handleImageLoaded}
                 />
             </View>
             <View
